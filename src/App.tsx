@@ -1,5 +1,6 @@
 import React from "react";
 import Registration from "./components/forms/Registration";
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return (
@@ -7,7 +8,8 @@ function App() {
       <div className="flex justify-center ">
         <h1 className="text-3xl font-bold underline">Track My Stuffs</h1>
       </div>
-      <Registration />
+      <AppRoutes />
+      {/* <Registration /> */}
     </>
   );
 }
