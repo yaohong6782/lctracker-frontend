@@ -5,11 +5,7 @@ import AppRoutes from "./routes/AppRoutes";
 function App() {
   return (
     <>
-      <div className="flex justify-center ">
-        <h1 className="text-3xl font-bold underline">Track My Stuffs</h1>
-      </div>
       <AppRoutes />
-      {/* <Registration /> */}
     </>
   );
 }

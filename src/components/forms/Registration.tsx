@@ -51,7 +51,6 @@ const Registration = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
   return (
-
     <div className="flex h-screen">
       <Form {...form}>
         <form
@@ -83,7 +82,12 @@ const Registration = () => {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input type="password" placeholder="Password" autoComplete="on"{...field} />
+                  <Input
+                    type="password"
+                    placeholder="Password"
+                    autoComplete="on"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

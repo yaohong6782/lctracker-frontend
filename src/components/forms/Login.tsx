@@ -16,7 +16,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-
 import { LoginSchema } from "@/zodSchema/registration";
 import { Link } from "react-router-dom";
 
@@ -67,7 +66,12 @@ const Login = () => {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input type="password" placeholder="Password" autoComplete="on" {...field} />
+                  <Input
+                    type="password"
+                    placeholder="Password"
+                    autoComplete="on"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -76,7 +80,7 @@ const Login = () => {
 
           <Button type="submit">Login</Button>
           <FormDescription>
-            No account?{" "}
+            Don&apos;t have an account?{" "}
             <Link to="/registration">
               <span className="font-bold underline">Sign Up</span>
             </Link>
@@ -87,4 +91,4 @@ const Login = () => {
   );
 };
 
-export default Login; 
+export default Login;
