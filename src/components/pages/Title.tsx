@@ -6,16 +6,21 @@ const Title = () => {
     <>
       <nav className="p-4 sticky top-0 z-50 justify-between text-xl font-acme border-b pb-3 bg-white dark:border-b-slate-800">
         <div className="flex justify-between items-center m-auto max-w-7xl">
-          <div className="flex justify-start"> Home </div>
+          <div className="flex justify-start">
+            <span className="hover:underline underline-offset-8">Home</span>{" "}
+          </div>
           <ul className="flex justify-center gap-6">
-            <li>Post</li>
-            <li>View Dashboard</li>
-            {/* <li>third</li> */}
+            <li className="hover:underline underline-offset-8">Post</li>
+            <li className="hover:underline underline-offset-8">
+              View Dashboard
+            </li>
           </ul>
-          <div className="flex justify-end">Profile</div>
+          <div className="flex justify-end">
+            <span className="hover:underline underline-offset-8">Profile</span>
+          </div>
         </div>
       </nav>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center pt-6">
         <h1 className="text-3xl font-bold underline">Track My Stuffs</h1>
       </div>
       <Outlet />
@@ -24,13 +29,3 @@ const Title = () => {
 };
 
 export default Title;
-{
-  /* <ul className="">
-            <li>Home</li>
-          </ul>
-          <ul className="flex items-center gap-2 md:gap-4">
-            <li>asdf</li>
-            <li>asdf</li>
-            <li>sdskaj</li>
-          </ul> */
-}
