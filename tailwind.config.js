@@ -8,6 +8,11 @@ module.exports = {
     "./src/**/*.{ts,tsx}",
   ],
   theme: {
+    screens: {
+      //   sm: "500px",
+      md: "350px",
+      lg: "768px",
+    },
     fontFamily: {
       body: [
         '"Inter var", sans-serif',

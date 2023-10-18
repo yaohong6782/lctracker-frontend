@@ -14,6 +14,7 @@ import { useForm } from "react-hook-form";
 import { UploadSchema } from "@/zodSchema/upload";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { Input } from "@/components/ui/input";
 const UploadQuestions = () => {
   const form = useForm<z.infer<typeof UploadSchema>>({
     resolver: zodResolver(UploadSchema),
@@ -31,16 +32,47 @@ const UploadQuestions = () => {
   };
   return (
     <>
-      <div className="flex h-screen">
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)}>
-            {/* 
-            
-            
-            */}
-          </form>
-        </Form>
-      </div>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-4 grid justify-center"
+        >
+          <h2 className="text-2xl underline flex justify-center">Upload</h2>
+          <FormField
+            control={form.control}
+            name="questionNumber"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="flex justify-center">
+                  Question Number
+                </FormLabel>
+                <FormControl className="lg:w-96 flex items-center justify-content-center md:w-72">
+                  <Input type="text" placeholder="Question Number" {...field} />
+                </FormControl>
+                <FormDescription>asdf</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />{" "}
+          <FormField
+            control={form.control}
+            name="title"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Title </FormLabel>
+                <FormControl>
+                  <Input
+                    type="text"
+                    placeholder="Title of problem"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </form>
+      </Form>
     </>
   );
 };
