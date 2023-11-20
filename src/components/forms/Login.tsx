@@ -16,7 +16,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import axios from 'axios';
+import axios from "axios";
+import * as AXIOS_API from "@/constants/apiConstants";
 
 import { LoginSchema } from "@/zodSchema/registration";
 import { Link } from "react-router-dom";
@@ -30,8 +31,19 @@ const Login = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+  const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
     console.log(values);
+    try {
+      const res = await axios.post(
+        `${AXIOS_API.BASE_URL}${AXIOS_API.API_ENDPOINTS.LOGIN}`
+      );
+
+      if (res.status === 200) {
+        console.log('successfully logged in, jwt token generated')
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

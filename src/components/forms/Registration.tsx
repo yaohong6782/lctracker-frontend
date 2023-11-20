@@ -34,41 +34,46 @@ import {
 import { roleList } from "@/constants/roleList";
 
 import { RegistrationSchema } from "@/zodSchema/registration";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as AXIOS_API from "@/constants/apiConstants";
 
 import axios from "axios";
 
 const Registration = () => {
-  const form = useForm<z.infer<typeof RegistrationSchema>>(
-    {
+  const navigate = useNavigate();
+
+  const form = useForm<z.infer<typeof RegistrationSchema>>({
     resolver: zodResolver(RegistrationSchema),
     defaultValues: {
       email: "",
       password: "",
       role: "user",
     },
-    
   });
 
-
-//   const isLoading = form.formState.isSubmitting;
+  const [createdSuccess, setCreatedSuccess] = useState(false);
   const onSubmit = async (values: z.infer<typeof RegistrationSchema>) => {
+    setCreatedSuccess(false);
     console.log(values);
     try {
-        const res =  await axios.post(`${AXIOS_API.BASE_URL}${AXIOS_API.API_ENDPOINTS.SIGN_UP}`, {
-        username : values.email,
-        password: values.password,
-        role: values.role
-      });
-      console.log(res)
+      const res = await axios.post(
+        `${AXIOS_API.BASE_URL}${AXIOS_API.API_ENDPOINTS.SIGN_UP}`,
+        {
+          username: values.email,
+          password: values.password,
+          role: values.role,
+        }
+      );
+      console.log(res);
       if (res.status === 201) {
-
+        setCreatedSuccess(true);
+        setTimeout(() => {
+        navigate("/login")
+        }, 1000)
       }
-
-      
     } catch (err) {
-        console.log(err);
+      setCreatedSuccess(false);
+      console.log(err);
     }
     // axios.post("http://localhost:8080/users/signUp", {
     //     username: values.email,
@@ -193,7 +198,14 @@ const Registration = () => {
               </FormItem>
             )}
           />
-          <Button disabled={form.formState.isSubmitting} type="submit">Register</Button>
+          {createdSuccess && (
+            <FormDescription className="justify-self-center font-semibold">
+              Account created! Redirecting..
+            </FormDescription>
+          )}
+          <Button disabled={form.formState.isSubmitting || createdSuccess} type="submit">
+            Register
+          </Button>
           <FormDescription>
             Already have an account?{" "}
             <Link to="/login">
