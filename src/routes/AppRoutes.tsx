@@ -1,10 +1,13 @@
 import React from "react";
 
+import { Route, Routes } from "react-router-dom";
+
 import Login from "@/components/forms/Login";
 import Registration from "@/components/forms/Registration";
 import UploadQuestions from "@/components/pages/UploadQuestions";
-import Title from "@/components/pages/Title";
-import { Route, Routes } from "react-router-dom";
+import TitleOverlay from "@/components/navbar/TitleOverlay";
+import Home from "@/components/pages/Home";
+import Dashboard from "@/components/pages/Dashboard";
 
 const AppRoutes = () => {
   return (
@@ -15,11 +18,14 @@ const AppRoutes = () => {
         <Route path="/login" element={<Login />} />
       </Route>
 
-      <Route path="/home" element={<Title />}>
-        <Route index element={<UploadQuestions />} />
+      <Route path="/" element={<TitleOverlay />}>
+        <Route path="/home" element={<Home />} />
+        <Route path="/post" element={<UploadQuestions />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        {/* <Route path="/logout"/> */}
       </Route>
     </Routes>
-  )
+  );
 };
 
 export default AppRoutes;

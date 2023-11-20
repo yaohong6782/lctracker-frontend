@@ -16,6 +16,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+
 import {
   Command,
   CommandEmpty,
@@ -23,6 +24,7 @@ import {
   CommandInput,
   CommandItem,
 } from "@/components/ui/command";
+
 import {
   Popover,
   PopoverContent,
@@ -33,19 +35,51 @@ import { roleList } from "@/constants/roleList";
 
 import { RegistrationSchema } from "@/zodSchema/registration";
 import { Link } from "react-router-dom";
+import * as AXIOS_API from "@/constants/apiConstants";
+
+import axios from "axios";
 
 const Registration = () => {
-  const form = useForm<z.infer<typeof RegistrationSchema>>({
+  const form = useForm<z.infer<typeof RegistrationSchema>>(
+    {
     resolver: zodResolver(RegistrationSchema),
     defaultValues: {
       email: "",
       password: "",
-      role: "",
+      role: "user",
     },
+    
   });
 
-  const onSubmit = (values: z.infer<typeof RegistrationSchema>) => {
+
+//   const isLoading = form.formState.isSubmitting;
+  const onSubmit = async (values: z.infer<typeof RegistrationSchema>) => {
     console.log(values);
+    try {
+        const res =  await axios.post(`${AXIOS_API.BASE_URL}${AXIOS_API.API_ENDPOINTS.SIGN_UP}`, {
+        username : values.email,
+        password: values.password,
+        role: values.role
+      });
+      console.log(res)
+      if (res.status === 201) {
+
+      }
+
+      
+    } catch (err) {
+        console.log(err);
+    }
+    // axios.post("http://localhost:8080/users/signUp", {
+    //     username: values.email,
+    //     password: values.password,
+    //     role: values.role
+    // }).then(res => {
+    //     console.log(res)
+    // }).catch(err => {
+    //     console.log("sadge")
+    //     console.log(err)
+    // })
   };
 
   const [open, setOpen] = useState(false);
@@ -93,7 +127,7 @@ const Registration = () => {
               </FormItem>
             )}
           />
-
+          {/* Role registration future addons */}
           <FormField
             control={form.control}
             name="role"
@@ -107,15 +141,17 @@ const Registration = () => {
                       role="combobox"
                       aria-expanded={open}
                       className="w-full justify-between"
+                      disabled
                     >
-                      {field.value
+                      {(field.value = "User")}
+                      {/* {field.value
                         ? roleList.find((role) => role.value === field.value)
                             ?.label
-                        : "Select role"}
+                        : "Select role"} */}
                       <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-[200px] p-0">
+                  {/* <PopoverContent className="w-[200px] p-0">
                     <Command>
                       <CommandInput placeholder="Search roles" />
                       <CommandEmpty>No role found.</CommandEmpty>
@@ -130,7 +166,7 @@ const Registration = () => {
                             //     setOpen(false);
                             //   }}
                             onSelect={() => {
-                              form.setValue("role", role.value);
+                              form.setValue("role", "user");
                               form.clearErrors("role"); // Clear the "role" field's error
                               setOpen(false);
                             }}
@@ -148,7 +184,7 @@ const Registration = () => {
                         ))}
                       </CommandGroup>
                     </Command>
-                  </PopoverContent>
+                  </PopoverContent> */}
                 </Popover>
                 <FormDescription>
                   Roles will be subjected to approval
@@ -157,7 +193,7 @@ const Registration = () => {
               </FormItem>
             )}
           />
-          <Button type="submit">Register</Button>
+          <Button disabled={form.formState.isSubmitting} type="submit">Register</Button>
           <FormDescription>
             Already have an account?{" "}
             <Link to="/login">

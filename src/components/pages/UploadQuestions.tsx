@@ -41,9 +41,9 @@ const UploadQuestions = () => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-4 grid justify-center"
         >
-          <h2 className="text-2xl underline flex justify-center">
+          {/* <h2 className="text-2xl underline flex justify-center">
             Post Question
-          </h2>
+          </h2> */}
           <FormField
             control={form.control}
             name="questionNumber"

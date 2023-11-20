@@ -16,6 +16,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
+import axios from 'axios';
+
 import { LoginSchema } from "@/zodSchema/registration";
 import { Link } from "react-router-dom";
 
@@ -32,8 +34,6 @@ const Login = () => {
     console.log(values);
   };
 
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("");
   return (
     <div className="flex h-screen">
       <Form {...form}>
