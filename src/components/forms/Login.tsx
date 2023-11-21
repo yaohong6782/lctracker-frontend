@@ -22,6 +22,7 @@ import * as AXIOS_API from "@/constants/apiConstants";
 import { LoginSchema } from "@/zodSchema/registration";
 import { Link } from "react-router-dom";
 
+
 const Login = () => {
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
@@ -30,15 +31,20 @@ const Login = () => {
       password: "",
     },
   });
-
+// eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJodW1waHJleUBlbWFpb…A1Nn0.rV6v1d_TEzUnRF3cAwK_h_NeHPADgHNpN3uc1p1q6TE
   const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
     console.log(values);
     try {
       const res = await axios.post(
-        `${AXIOS_API.BASE_URL}${AXIOS_API.API_ENDPOINTS.LOGIN}`
+        `${AXIOS_API.BASE_URL}${AXIOS_API.API_ENDPOINTS.LOGIN}`,
+        {
+            username: values.email,
+            password: values.password
+        }
       );
 
       if (res.status === 200) {
+        console.log(res.data);
         console.log('successfully logged in, jwt token generated')
       }
     } catch (err) {
