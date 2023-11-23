@@ -20,7 +20,7 @@ import axios from "axios";
 import * as AXIOS_API from "@/constants/apiConstants";
 
 import { LoginSchema } from "@/zodSchema/registration";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
@@ -31,6 +31,9 @@ const Login = () => {
       password: "",
     },
   });
+
+  const navigate = useNavigate();
+
 // eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJodW1waHJleUBlbWFpb…A1Nn0.rV6v1d_TEzUnRF3cAwK_h_NeHPADgHNpN3uc1p1q6TE
   const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
     console.log(values);
@@ -45,13 +48,15 @@ const Login = () => {
 
       if (res.status === 200) {
         console.log(res.data);
-        console.log('successfully logged in, jwt token generated')
+        localStorage.setItem('accessToken', res.data.accessToken);
+        navigate('/home');
       }
     } catch (err) {
       console.log(err);
     }
   };
 
+//   console.log(localStorage.getItem('accessToken'))
   return (
     <div className="flex h-screen">
       <Form {...form}>
