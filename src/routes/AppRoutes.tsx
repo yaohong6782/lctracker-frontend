@@ -8,8 +8,10 @@ import UploadQuestions from "@/components/pages/UploadQuestions";
 import TitleOverlay from "@/components/navbar/TitleOverlay";
 import Home from "@/components/pages/Home";
 import Dashboard from "@/components/pages/Dashboard";
+import AuthWrapper from "./AuthWrapper";
 
 const AppRoutes = () => {
+  console.log("hahaha ", localStorage.getItem("accessToken"));
   return (
     <Routes>
       <Route path="/">
@@ -18,7 +20,14 @@ const AppRoutes = () => {
         <Route path="/login" element={<Login />} />
       </Route>
 
-      <Route path="/" element={<TitleOverlay />}>
+      <Route
+        path="/"
+        element={
+          <AuthWrapper>
+            <TitleOverlay />
+          </AuthWrapper>
+        }
+      >
         <Route path="/home" element={<Home />} />
         <Route path="/post" element={<UploadQuestions />} />
         <Route path="/dashboard" element={<Dashboard />} />
