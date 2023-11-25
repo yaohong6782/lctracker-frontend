@@ -10,7 +10,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-
 const HEADER = ["Question Number", "Title", "Link", "Posted By", "Time Stamp"];
 const SAMPLE_DATA = [
   {
@@ -39,12 +38,14 @@ const SAMPLE_DATA = [
   },
 ];
 
-
 // console.log(Object.keys(SAMPLE_DATA).length)
 const Dashboard = () => {
-    useEffect(() => {}, []);
+  useEffect(() => {}, []);
   return (
     <>
+      <div className="flex justify-center items-center pt-6">
+        <h1 className="text-3xl font-bold ">{"Dashboard"} </h1>
+      </div>
       <Table className="mt-4">
         <TableCaption>List of Questions</TableCaption>
         <TableHeader>

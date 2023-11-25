@@ -19,7 +19,7 @@ const TitleOverlay = () => {
               }`}
               onClick={() => handleLinkClick("Home")}
             >
-              Home
+              Track My Stuffs 
             </NavLink>{" "}
           </div>
           <ul className="flex justify-center gap-6">
@@ -75,9 +75,7 @@ const TitleOverlay = () => {
           </div> */}
         </div>
       </nav>
-      <div className="flex justify-center items-center pt-6">
-        <h1 className="text-3xl font-bold ">{isActiveLink == "Post" ? "Post Question" : isActiveLink}</h1>
-      </div>
+      
       <Outlet />
     </>
   );

@@ -52,6 +52,7 @@ const Login = () => {
       if (res.status === 200) {
         console.log(res.data);
         localStorage.setItem("accessToken", res.data.accessToken);
+        localStorage.setItem("userLoginName" , values.email);
         navigate("/home");
       }
     } catch (err) {

@@ -24,6 +24,9 @@ const Home = () => {
   console.log("access token ", localStorage.getItem("accessToken"));
   return (
     <>
+      <div className="flex justify-center items-center pt-6">
+        <h1 className="text-3xl font-bold ">{"Track My Stuffs"} </h1>
+      </div>
       <h1>Hello world</h1>
     </>
   );

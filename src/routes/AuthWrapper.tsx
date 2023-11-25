@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate, Outlet } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
-const AuthWrapper = ({ children }) => {
+const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(true);

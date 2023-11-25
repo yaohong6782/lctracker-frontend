@@ -12,6 +12,7 @@ import AuthWrapper from "./AuthWrapper";
 
 const AppRoutes = () => {
   console.log("hahaha ", localStorage.getItem("accessToken"));
+  console.log('username' , localStorage.getItem("userLoginName"));
   return (
     <Routes>
       <Route path="/">
