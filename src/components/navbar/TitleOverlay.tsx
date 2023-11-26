@@ -19,7 +19,7 @@ const TitleOverlay = () => {
             }`}
             onClick={() => handleLinkClick("Home")}
           >
-            Track My Stuffs
+          Log Tracker
           </NavLink>{" "}
           <ul className="flex justify-center gap-6">
             <NavLink to="/post">
@@ -50,7 +50,7 @@ const TitleOverlay = () => {
               }`}
               onClick={() => handleLinkClick("Logout")}
             >
-              Logout
+                Sign out
             </NavLink>
           </div>
         </div>

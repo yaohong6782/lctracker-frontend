@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <div className="flex justify-center items-center pt-6 pb-6">
-        <h1 className="text-3xl font-bold ">{"Track My Stuffs"} </h1>
+        <h1 className="text-3xl font-bold ">{"Log Tracker"} </h1>
       </div>
       <div className="flex justify-center pt-2 pb-2">
         {/* <text className="text-2xl text-slate-500">My Sandbox</text> */}
@@ -17,7 +17,7 @@ const Home = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           <div className="max-w-md flex flex-col p-6">
             <h2 className="font-bold text-xl p-2">Simple Yet Powerful</h2>
-            <p className="p-2">
+            <p className="p-2 text-slate-500">
               Capture your questions, ponder on them, and uncover hidden
               insights.
               <br />
@@ -31,7 +31,7 @@ const Home = () => {
           </div>
           <div className="max-w-md flex flex-col p-6">
             <h2 className="font-bold text-xl p-2">What&lsquo;s Coming Next</h2>
-            <p className="p-2 ">
+            <p className="p-2 text-slate-500">
               Stay tuned for exciting additions and features to enhance your
               experience. <br />
               Constantly evolving and improving.
