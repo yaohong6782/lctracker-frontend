@@ -9,7 +9,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <div className="bg-custom-bg min-h-screen">
-        {/* Your content goes here */}
         <App />
       </div>
     </BrowserRouter>

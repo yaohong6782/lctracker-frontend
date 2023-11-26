@@ -11,7 +11,7 @@ const TitleOverlay = () => {
     <>
       <nav className="p-4 sticky top-0 z-50 justify-between text-xl font-acme border-b pb-3 bg-white dark:border-b-slate-800">
         {/* <div className="flex justify-between items-center m-auto max-w-7xl"> */}
-        <div className="flex gap-6 items-center">
+        <div className="flex flex-nowrap gap-6 items-center">
           <NavLink
             to="/home"
             className={`font-bold hover:underline underline-offset-8 cursor-pointer ${

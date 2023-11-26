@@ -31,7 +31,7 @@ module.exports = {
     },
     extend: {
         backgroundColor:{
-            'custom-bg': '#FFFBF5'
+            'custom-bg': 'white'
         },
         keyframes: {
           "accordion-down": {
