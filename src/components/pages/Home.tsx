@@ -10,7 +10,7 @@ const Home = () => {
         <h1 className="text-3xl font-bold ">{"Track My Stuffs"} </h1>
       </div>
       <div className="flex justify-center pt-2 pb-2">
-        <text className="text-2xl text-slate-500">My Sandbox.</text>
+        {/* <text className="text-2xl text-slate-500">My Sandbox</text> */}
       </div>
 
       <div className="flex justify-center">
@@ -25,20 +25,20 @@ const Home = () => {
             </p>
             <img
               src={cardboard1}
-              className="rounded-2xl w-full "
+              className="rounded-2xl w-full shadow-lg"
               alt="Cardboard 1"
             />
           </div>
           <div className="max-w-md flex flex-col p-6">
             <h2 className="font-bold text-xl p-2">What&lsquo;s Coming Next</h2>
-            <p className="p-2">
+            <p className="p-2 ">
               Stay tuned for exciting additions and features to enhance your
               experience. <br />
               Constantly evolving and improving.
             </p>
             <img
               src={patchingCardBoard}
-              className="rounded-2xl w-full "
+              className="rounded-2xl w-full shadow-lg "
               alt="Cardboard Patching"
             />
           </div>

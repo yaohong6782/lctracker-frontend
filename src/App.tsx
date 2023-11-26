@@ -5,7 +5,10 @@ import AppRoutes from "./routes/AppRoutes";
 function App() {
   return (
     <>
+    <div className="font-body font-">
+
       <AppRoutes />
+    </div>
     </>
   );
 }
