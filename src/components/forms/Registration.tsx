@@ -65,7 +65,7 @@ const Registration = () => {
         }
       );
       console.log(res);
-      if (res.status === 201) {
+      if (res.status === 201 || res.status === 200) {
         setCreatedSuccess(true);
         setTimeout(() => {
         navigate("/login")

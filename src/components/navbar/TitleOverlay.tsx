@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import cardboard1 from "@/assets/cardboard-box1.png";
 
 const TitleOverlay = () => {
   const [isActiveLink, setIsActiveLink] = useState("");
@@ -14,12 +15,13 @@ const TitleOverlay = () => {
         <div className="flex flex-nowrap gap-6 items-center">
           <NavLink
             to="/home"
-            className={`font-bold hover:underline underline-offset-8 cursor-pointer ${
+            className={`flex items-center font-bold hover:underline underline-offset-8 cursor-pointer ${
               isActiveLink === "Home" ? "underline" : ""
             }`}
             onClick={() => handleLinkClick("Home")}
           >
-          Log Tracker
+            <img src={cardboard1} className="w-10 border-2 p-1 rounded-lg border-amber-300 mr-3 transform-gpu hover:scale-110" />
+            Log Tracker
           </NavLink>{" "}
           <ul className="flex justify-center gap-6">
             <NavLink to="/post">
@@ -50,7 +52,7 @@ const TitleOverlay = () => {
               }`}
               onClick={() => handleLinkClick("Logout")}
             >
-                Sign out
+              Sign out
             </NavLink>
           </div>
         </div>

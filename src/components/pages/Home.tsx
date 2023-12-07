@@ -3,7 +3,7 @@ import cardboard1 from "@/assets/cardboard-box1.png";
 import patchingCardBoard from "@/assets/cardboard-maintenance.png";
 
 const Home = () => {
-  console.log("access token ", localStorage.getItem("accessToken"));
+//   console.log("access token ", localStorage.getItem("accessToken"));
   return (
     <>
       <div className="flex justify-center items-center pt-6 pb-6">
