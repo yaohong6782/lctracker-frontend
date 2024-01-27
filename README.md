@@ -12,4 +12,4 @@ Frontend application to note and view detailed tracking of stuffs
 -- Node / ExpressJS 
 [Backend Repo - Node Version] https://github.com/yaohong6782/exp-version
 
-This is just a template to get started
+This is just a template to get started, feel free to clone and learn from it
