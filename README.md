@@ -8,3 +8,8 @@ Frontend application to note and view detailed tracking of stuffs
 ## Backend
 -- Java, Springboot, Postgresql 
 [Backend Repo] https://github.com/yaohong6782/tracker-backend
+
+-- Node / ExpressJS 
+[Backend Repo - Node Version] https://github.com/yaohong6782/exp-version
+
+This is just a template to get started, feel free to clone and learn
