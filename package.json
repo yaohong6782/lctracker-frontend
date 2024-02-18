@@ -23,6 +23,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
+    "dayjs": "^1.11.10",
     "eslint-plugin-react": "^7.33.2",
     "jwt-decode": "^4.0.0",
     "lucide-react": "^0.284.0",

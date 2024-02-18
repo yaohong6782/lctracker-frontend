@@ -30,7 +30,7 @@ const Login = () => {
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
-      email: "",
+      username: "",
       password: "",
     },
   });
@@ -44,15 +44,15 @@ const Login = () => {
       const res = await axios.post(
         `${AXIOS_API.BASE_URL}${AXIOS_API.API_ENDPOINTS.LOGIN}`,
         {
-          username: values.email,
+          username: values.username,
           password: values.password,
         }
       );
 
-      if (res.status === 200) {
+      if (res.status === 201) {
         console.log(res.data);
-        localStorage.setItem("accessToken", res.data.accessToken);
-        localStorage.setItem("userLoginName" , values.email);
+        localStorage.setItem("accessToken", res.data.jwtToken);
+        localStorage.setItem("userLoginName", values.username);
         navigate("/home");
       }
     } catch (err) {
@@ -71,12 +71,12 @@ const Login = () => {
           <h1 className="text-3xl font-bold underline">Login</h1>
           <FormField
             control={form.control}
-            name="email"
+            name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>Username</FormLabel>
                 <FormControl>
-                  <Input type="text" placeholder="Email" {...field} />
+                  <Input type="text" placeholder="Username" {...field} />
                 </FormControl>
                 <FormDescription>
                   This is your public display name.

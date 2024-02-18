@@ -37,23 +37,28 @@ const UploadQuestions = () => {
     console.log(values);
     try {
       const res = await axios.post(
-        `${AXIOS_API.BASE_URL}${AXIOS_API.API_ENDPOINTS.CREATE_POST}`,
+        `${AXIOS_API.BASE_URL}${AXIOS_API.API_ENDPOINTS.CREATE_QUESTION}`,
         {
-          questionTitle: values.title,
-          questionNumber: values.questionNumber,
-          content: values.content,
-          questionUrl: values.url,
-          userId: localStorage.getItem('userLoginName') 
-        }, {
-            headers : {
-                Authorization:`Bearer ${localStorage.getItem('accessToken')}`
-            }
+          question_number: values.questionNumber,
+          title: values.title,
+          notes: values.content,
+          solved_date: new Date(),
+          question_url: values.url,
+          solved: false,
+          user: {
+            user_id: localStorage.getItem('userLoginName'),
+          },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
         }
       );
 
       if (res.status === 200 || res.status === 201) {
         console.log(res);
-        console.log("successfully posted")
+        console.log("successfully posted");
       }
     } catch (err) {
       console.log(err);

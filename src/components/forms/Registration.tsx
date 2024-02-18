@@ -46,6 +46,7 @@ const Registration = () => {
     resolver: zodResolver(RegistrationSchema),
     defaultValues: {
       email: "",
+      username: "",
       password: "",
       role: "user",
     },
@@ -59,7 +60,8 @@ const Registration = () => {
       const res = await axios.post(
         `${AXIOS_API.BASE_URL}${AXIOS_API.API_ENDPOINTS.SIGN_UP}`,
         {
-          username: values.email,
+          email: values.email,
+          username: values.username,
           password: values.password,
           role: values.role,
         }
@@ -68,8 +70,8 @@ const Registration = () => {
       if (res.status === 201 || res.status === 200) {
         setCreatedSuccess(true);
         setTimeout(() => {
-        navigate("/login")
-        }, 1000)
+          navigate("/login");
+        }, 1000);
       }
     } catch (err) {
       setCreatedSuccess(false);
@@ -106,6 +108,22 @@ const Registration = () => {
                 <FormControl>
                   <Input type="text" placeholder="Email" {...field} />
                 </FormControl>
+                {/* <FormDescription>
+                  This is your public display name.
+                </FormDescription> */}
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="username"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Username</FormLabel>
+                <FormControl>
+                  <Input type="text" placeholder="Username" {...field} />
+                </FormControl>
                 <FormDescription>
                   This is your public display name.
                 </FormDescription>
@@ -113,7 +131,6 @@ const Registration = () => {
               </FormItem>
             )}
           />
-
           <FormField
             control={form.control}
             name="password"
@@ -203,7 +220,10 @@ const Registration = () => {
               Account created! Redirecting..
             </FormDescription>
           )}
-          <Button disabled={form.formState.isSubmitting || createdSuccess} type="submit">
+          <Button
+            disabled={form.formState.isSubmitting || createdSuccess}
+            type="submit"
+          >
             Register
           </Button>
           <FormDescription>

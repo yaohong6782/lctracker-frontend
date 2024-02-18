@@ -1,8 +1,8 @@
 export const BASE_URL = "http://localhost:8000";
 
 export const API_ENDPOINTS = {
-    SIGN_UP : "/users/signUp",
-    LOGIN : "/users/userLogin",
-    CREATE_POST : "/posts/postContent",
-    USER_POST : "/posts/getAllPostsRespectiveToUser"
+    SIGN_UP : "/user/signUp",
+    LOGIN : "/user/userLogin",
+    CREATE_QUESTION : "/questions/postQuestion",
+    USER_QUESTION : "/questions/retrieveAllUserQns"
 }
